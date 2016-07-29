@@ -75,6 +75,31 @@ Operation|Effect
     exec 5<&-
 ```
 
+### Generate files
+
+#### With size
+
+```
+	# Zero filled for 100MB by chunk of 1KB.
+	dd if=/dev/zero of=/tmp/1Mo.zero bs=1KB count=100000
+
+	# Randomly filled for 100MB by chunk of 1KB.
+	dd if=/dev/urandom of=/tmp/1Mo.random bs=1KB count=100000
+
+	# Randomly filled for 100MB by chunk of 1KB moving 99 999 blocks in one time.
+	dd if=/dev/urandom of=/tmp/100Mo.random bs=1K seek=99999 count=1
+
+	# Fastest way to randomly filled a file by size function.
+	# Will output a base64 formated file of 1GB (2**30) non-formated and *3/4 for Base64 overhead, making the encoded output 1GB.
+	openssl rand -out sample.txt -base64 $(( 2**30 * 3/4 ))
+
+	# Allocate for 10GB
+	fallocate -l 10G gentoo_root.img
+	
+	# Output readable file with not duplicated content with 100 lines (can't exceed the length of '/usr/share/dict/words'.
+	ruby -e 'a=STDIN.readlines;100.times do;b=[];4.times do; b << a[rand(a.size)].chomp end; puts b.join(" "); end' < /usr/share/dict/words > file.txt
+```
+
 ## Data tricks and parsing
 
 ### number the lines

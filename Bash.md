@@ -4,8 +4,6 @@
 
 ### if managment
 
-[tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
-
 Primary|Meaning
 -------|-------
 [ -a FILE ]|True if FILE exists.
@@ -64,14 +62,14 @@ Operation|Effect
 ### File opened in choosen file-descriptor
 
 ```
-    # creation file handle on fd 5
+    # creation file handle on fd 5.
     exec 5< input-file.txt
-    
-    # use
+
+    # use it.
     read line <&5
     # The read here wont move the file pointer for other redirections of the same file like "read line < input-file.txt".
-    
-    # close handle
+
+    # close handle.
     exec 5<&-
 ```
 
@@ -93,20 +91,35 @@ Operation|Effect
 	# Will output a base64 formated file of 1GB (2**30) non-formated and *3/4 for Base64 overhead, making the encoded output 1GB.
 	openssl rand -out sample.txt -base64 $(( 2**30 * 3/4 ))
 
-	# Allocate for 10GB
+	# Allocate for 10GB.
 	fallocate -l 10G gentoo_root.img
-	
-	# Output readable file with not duplicated content with 100 lines (can't exceed the length of '/usr/share/dict/words'.
+
+	# Output readable file with not duplicated content with 100 lines.
 	ruby -e 'a=STDIN.readlines;100.times do;b=[];4.times do; b << a[rand(a.size)].chomp end; puts b.join(" "); end' < /usr/share/dict/words > file.txt
 ```
 
 ## Data tricks and parsing
 
-### number the lines
-
-[www.gnu.org/software/coreutils/nl](www.gnu.org/software/coreutils/nl)
+number the lines
 
 ```
-    # Will number all lines
+    # Will number all lines.
     nl -b a input-file.txt
 ```
+
+## Network
+
+```
+    lsof -i :portNumber
+    lsof -i tcp:portNumber
+    lsof -i udp:portNumber
+    lsof -i :80
+    lsof -i :80 | grep LISTEN
+```
+
+## References
+
+- [http://wiki.bash-hackers.org](http://wiki.bash-hackers.org)
+- [tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
+- [www.gnu.org/software/coreutils/nl](www.gnu.org/software/coreutils/nl)
+- [http://www.cyberciti.biz/faq/what-process-has-open-linux-port/](http://www.cyberciti.biz/faq/what-process-has-open-linux-port/)

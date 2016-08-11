@@ -135,6 +135,10 @@ number the lines
     lsof -i :80 | grep LISTEN
 ```
 
+## inotify (Monitor file system activity)
+
+[C tutorial](https://www.ibm.com/developerworks/linux/library/l-ubuntu-inotify/index.html)
+
 ## References
 
 - [http://wiki.bash-hackers.org](http://wiki.bash-hackers.org)

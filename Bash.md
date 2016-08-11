@@ -46,6 +46,24 @@ Operation|Effect
 [ EXPR1 -a EXPR2 ]|True if both EXPR1 and EXPR2 are true.
 [ EXPR1 -o EXPR2 ]|True if either EXPR1 or EXPR2 is true.
 
+## Infos
+
+### Determine about a given command
+
+```
+    $ type ls
+    ls is aliased to `ls --color=auto'
+    $ type cd
+    cd is a shell builtin
+    $ type rm
+    rm is /bin/rm
+    $ 
+    $ command -V ls
+    ls is aliased to `ls --color=auto'
+```
+
+[type](http://linuxcommand.org/lc3_man_pages/typeh.html)
+
 ## Redirection
 
 ### Redirect into a choosen file-descriptor

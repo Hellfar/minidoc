@@ -46,6 +46,45 @@ Operation|Effect
 [ EXPR1 -a EXPR2 ]|True if both EXPR1 and EXPR2 are true.
 [ EXPR1 -o EXPR2 ]|True if either EXPR1 or EXPR2 is true.
 
+### Loops
+
+```
+for planet in Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto
+do
+  echo $planet  # Each planet on a separate line.
+done
+```
+
+### Switch case
+
+```
+case "$1" in
+        start)
+            start
+            ;;
+        stop)
+            stop
+            ;;
+        status)
+            status anacron
+            ;;
+        restart)
+            stop
+            start
+            ;;
+        condrestart)
+            if test "x`pidof anacron`" != x; then
+                stop
+                start
+            fi
+            ;;
+        *)
+            echo $"Usage: $0 {start|stop|restart|condrestart|status}"
+            exit 1
+ 
+esac
+```
+
 ## Infos
 
 ### Determine about a given command
@@ -77,6 +116,15 @@ Operation|Effect
 ```
 
 ## File managment
+
+### read line by line
+
+```
+while read line
+do
+  echo "$line"
+done
+```
 
 ### File opened in choosen file-descriptor
 

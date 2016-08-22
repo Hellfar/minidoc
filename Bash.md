@@ -62,7 +62,8 @@ Operation|Effect
     ls is aliased to `ls --color=auto'
 ```
 
-[type](http://linuxcommand.org/lc3_man_pages/typeh.html)
+- [type](http://linuxcommand.org/lc3_man_pages/typeh.html)
+- [command](http://man.cx/command(1))
 
 ## Redirection
 
@@ -118,11 +119,39 @@ Operation|Effect
 
 ## Data tricks and parsing
 
-number the lines
+### number the lines
 
 ```
     # Will number all lines.
     nl -b a input-file.txt
+```
+
+### truncate variables
+
+```
+stringZ=abcABC123ABCabc
+#       0123456789.....
+#       0-based indexing.
+
+echo ${stringZ:0}                            # abcABC123ABCabc
+echo ${stringZ:1}                            # bcABC123ABCabc
+echo ${stringZ:7}                            # 23ABCabc
+
+echo ${stringZ:7:3}                          # 23A
+                                             # Three characters of substring.
+
+# Is it possible to index from the right end of the string?
+
+echo ${stringZ:-4}                           # abcABC123ABCabc
+# Defaults to full string, as in ${parameter:-default}.
+# However . . .
+
+echo ${stringZ:(-4)}                         # Cabc 
+echo ${stringZ: -4}                          # Cabc
+# Now, it works.
+# Parentheses or added space "escape" the position parameter.
+
+# Thank you, Dan Jacobson, for pointing this out.
 ```
 
 ## Network
@@ -142,6 +171,7 @@ number the lines
 ## References
 
 - [http://wiki.bash-hackers.org](http://wiki.bash-hackers.org)
+- [http://man.cx](http://man.cx)
 - [tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
 - [www.gnu.org/software/coreutils/nl](www.gnu.org/software/coreutils/nl)
 - [http://www.cyberciti.biz/faq/what-process-has-open-linux-port/](http://www.cyberciti.biz/faq/what-process-has-open-linux-port/)

@@ -202,6 +202,24 @@ echo ${stringZ: -4}                          # Cabc
 # Thank you, Dan Jacobson, for pointing this out.
 ```
 
+### split string
+
+```
+$ IFS=/ read foo bar <<< titi/tutu
+$ echo "$foo"
+titi
+$ echo "$bar"
+tutu
+```
+
+```
+string="titi-tutu"
+IFS=- # use "local IFS=-" inside the function
+set $string
+echo $1 # >>> titi
+echo $2 # >>> tutu
+```
+
 ## Network
 
 ```

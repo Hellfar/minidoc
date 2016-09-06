@@ -1,3 +1,6 @@
+# Ruby
+
+## Aliasing methods
 ```
 #!/usr/bin/env ruby
 class Microwave
@@ -34,3 +37,19 @@ m2 = Microwave.new
 m2.on # Does not display extra message
 ```
 [ref](http://ruby.about.com/od/rubyfeatures/a/aliasing.htm)
+
+## Redirecting standard output
+```
+#!/usr/bin/ruby
+
+$stdout = File.open "output.log", "a"
+
+puts "Ruby"
+puts "Java"
+
+$stdout.close
+$stdout = STDOUT
+
+puts "Python"
+```
+[ref](http://zetcode.com/lang/rubytutorial/io/)

@@ -222,6 +222,8 @@ echo $2 # >>> tutu
 
 ## Network
 
+### List program that are working with a specific port
+
 ```
     lsof -i :portNumber
     lsof -i tcp:portNumber
@@ -230,9 +232,26 @@ echo $2 # >>> tutu
     lsof -i :80 | grep LISTEN
 ```
 
+### Renew DHCP allocation
+
+```
+    sudo dhclient -v
+```
+
 ## inotify (Monitor file system activity)
 
 [C tutorial](https://www.ibm.com/developerworks/linux/library/l-ubuntu-inotify/index.html)
+
+## dialog
+
+```
+    {
+        for ((i = 0 ; i <= 100 ; i+=20)); do
+            sleep 1
+            echo $i
+        done
+    } | dialog --gauge "Please wait while installing" 6 60 0
+```
 
 ## References
 

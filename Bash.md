@@ -222,6 +222,41 @@ echo $2 # >>> tutu
 
 ## Network
 
+### scp
+
+```
+Copy the file "foobar.txt" from a remote host to the local host
+
+    $ scp your_username@remotehost.edu:foobar.txt /some/local/directory 
+
+Copy the file "foobar.txt" from the local host to a remote host
+
+    $ scp foobar.txt your_username@remotehost.edu:/some/remote/directory 
+
+Copy the directory "foo" from the local host to a remote host's directory "bar"
+
+    $ scp -r foo your_username@remotehost.edu:/some/remote/directory/bar 
+
+Copy the file "foobar.txt" from remote host "rh1.edu" to remote host "rh2.edu"
+
+    $ scp your_username@rh1.edu:/some/remote/directory/foobar.txt \
+    your_username@rh2.edu:/some/remote/directory/ 
+
+Copying the files "foo.txt" and "bar.txt" from the local host to your home directory on the remote host
+
+    $ scp foo.txt bar.txt your_username@remotehost.edu:~ 
+
+Copy the file "foobar.txt" from the local host to a remote host using port 2264
+
+    $ scp -P 2264 foobar.txt your_username@remotehost.edu:/some/remote/directory 
+
+Copy multiple files from the remote host to your current directory on the local host
+
+    $ scp your_username@remotehost.edu:/some/remote/directory/\{a,b,c\} . 
+
+    $ scp your_username@remotehost.edu:~/\{foo.txt,bar.txt\} .
+```
+
 ### List program that are working with a specific port
 
 ```
@@ -242,7 +277,23 @@ echo $2 # >>> tutu
 
 [C tutorial](https://www.ibm.com/developerworks/linux/library/l-ubuntu-inotify/index.html)
 
-## dialog
+## Misc
+
+### crypt a file
+
+```
+# encrypt
+openssl enc -in foo.bar \
+    -aes-256-cbc \
+    -pass stdin > foo.bar.enc
+
+# decrypt
+openssl enc -in foo.bar.enc \
+    -d -aes-256-cbc \
+    -pass stdin > foo.bar
+```
+
+### dialog
 
 ```
     {
@@ -260,3 +311,5 @@ echo $2 # >>> tutu
 - [tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html](tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
 - [www.gnu.org/software/coreutils/nl](www.gnu.org/software/coreutils/nl)
 - [http://www.cyberciti.biz/faq/what-process-has-open-linux-port/](http://www.cyberciti.biz/faq/what-process-has-open-linux-port/)
+- [https://unix.stackexchange.com/questions/162960/how-can-i-encrypt-a-file](https://unix.stackexchange.com/questions/162960/how-can-i-encrypt-a-file)
+- [http://www.hypexr.org/linux_scp_help.php](http://www.hypexr.org/linux_scp_help.php)

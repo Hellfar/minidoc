@@ -49,16 +49,16 @@ Operation|Effect
 ### Loops
 
 ```
-for planet in Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto
-do
-  echo $planet  # Each planet on a separate line.
-done
+    for planet in Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto
+    do
+      echo $planet  # Each planet on a separate line.
+    done
 ```
 
 ### Switch case
 
 ```
-case "$1" in
+    case "$1" in
         start)
             start
             ;;
@@ -81,8 +81,8 @@ case "$1" in
         *)
             echo $"Usage: $0 {start|stop|restart|condrestart|status}"
             exit 1
- 
-esac
+
+    esac
 ```
 
 ## Infos
@@ -120,10 +120,10 @@ esac
 ### read line by line
 
 ```
-while read line
-do
-  echo "$line"
-done
+    while read line
+    do
+      echo "$line"
+    done
 ```
 
 ### File opened in choosen file-descriptor
@@ -145,24 +145,24 @@ done
 #### With size
 
 ```
-	# Zero filled for 100MB by chunk of 1KB.
-	dd if=/dev/zero of=/tmp/1Mo.zero bs=1KB count=100000
-
-	# Randomly filled for 100MB by chunk of 1KB.
-	dd if=/dev/urandom of=/tmp/1Mo.random bs=1KB count=100000
-
-	# Randomly filled for 100MB by chunk of 1KB moving 99 999 blocks in one time.
-	dd if=/dev/urandom of=/tmp/100Mo.random bs=1K seek=99999 count=1
-
-	# Fastest way to randomly filled a file by size function.
-	# Will output a base64 formated file of 1GB (2**30) non-formated and *3/4 for Base64 overhead, making the encoded output 1GB.
-	openssl rand -out sample.txt -base64 $(( 2**30 * 3/4 ))
-
-	# Allocate for 10GB.
-	fallocate -l 10G gentoo_root.img
-
-	# Output readable file with not duplicated content with 100 lines.
-	ruby -e 'a=STDIN.readlines;100.times do;b=[];4.times do; b << a[rand(a.size)].chomp end; puts b.join(" "); end' < /usr/share/dict/words > file.txt
+    # Zero filled for 100MB by chunk of 1KB.
+    dd if=/dev/zero of=/tmp/1Mo.zero bs=1KB count=100000
+    
+    # Randomly filled for 100MB by chunk of 1KB.
+    dd if=/dev/urandom of=/tmp/1Mo.random bs=1KB count=100000
+    
+    # Randomly filled for 100MB by chunk of 1KB moving 99 999 blocks in one time.
+    dd if=/dev/urandom of=/tmp/100Mo.random bs=1K seek=99999 count=1
+    
+    # Fastest way to randomly filled a file by size function.
+    # Will output a base64 formated file of 1GB (2**30) non-formated and *3/4 for Base64 overhead, making the encoded output 1GB.
+    openssl rand -out sample.txt -base64 $(( 2**30 * 3/4 ))
+    
+    # Allocate for 10GB.
+    fallocate -l 10G gentoo_root.img
+    
+    # Output readable file with not duplicated content with 100 lines.
+    ruby -e 'a=STDIN.readlines;100.times do;b=[];4.times do; b << a[rand(a.size)].chomp end; puts b.join(" "); end' < /usr/share/dict/words > file.txt
 ```
 
 ## Data tricks and parsing
@@ -177,39 +177,39 @@ done
 ### truncate variables
 
 ```
-stringZ=abcABC123ABCabc
-#       0123456789.....
-#       0-based indexing.
+    stringZ=abcABC123ABCabc
+    #       0123456789.....
+    #       0-based indexing.
+    
+    echo ${stringZ:0}                            # abcABC123ABCabc
+    echo ${stringZ:1}                            # bcABC123ABCabc
+    echo ${stringZ:7}                            # 23ABCabc
+    
+    echo ${stringZ:7:3}                          # 23A
+                                                 # Three characters of substring.
+    
+    # Is it possible to index from the right end of the string?
 
-echo ${stringZ:0}                            # abcABC123ABCabc
-echo ${stringZ:1}                            # bcABC123ABCabc
-echo ${stringZ:7}                            # 23ABCabc
-
-echo ${stringZ:7:3}                          # 23A
-                                             # Three characters of substring.
-
-# Is it possible to index from the right end of the string?
-
-echo ${stringZ:-4}                           # abcABC123ABCabc
-# Defaults to full string, as in ${parameter:-default}.
-# However . . .
-
-echo ${stringZ:(-4)}                         # Cabc 
-echo ${stringZ: -4}                          # Cabc
-# Now, it works.
-# Parentheses or added space "escape" the position parameter.
-
-# Thank you, Dan Jacobson, for pointing this out.
+    echo ${stringZ:-4}                           # abcABC123ABCabc
+    # Defaults to full string, as in ${parameter:-default}.
+    # However . . .
+    
+    echo ${stringZ:(-4)}                         # Cabc 
+    echo ${stringZ: -4}                          # Cabc
+    # Now, it works.
+    # Parentheses or added space "escape" the position parameter.
+    
+    # Thank you, Dan Jacobson, for pointing this out.
 ```
 
 ### split string
 
 ```
-$ IFS=/ read foo bar <<< titi/tutu
-$ echo "$foo"
-titi
-$ echo "$bar"
-tutu
+    $ IFS=/ read foo bar <<< titi/tutu
+    $ echo "$foo"
+    titi
+    $ echo "$bar"
+    tutu
 ```
 
 ```
@@ -279,18 +279,38 @@ Copy multiple files from the remote host to your current directory on the local 
 
 ## Misc
 
-### crypt a file
+### crypt files
 
 ```
-# encrypt
-openssl enc -in foo.bar \
-    -aes-256-cbc \
-    -pass stdin > foo.bar.enc
+    # encrypt
+    openssl enc -in foo.bar \
+        -aes-256-cbc \
+        -pass stdin > foo.bar.enc
 
-# decrypt
-openssl enc -in foo.bar.enc \
-    -d -aes-256-cbc \
-    -pass stdin > foo.bar
+    # decrypt
+    openssl enc -in foo.bar.enc \
+        -d -aes-256-cbc \
+        -pass stdin > foo.bar
+```
+
+### extract archives
+
+```
+    tar -xvf archive.tar.gz
+    pacman -U archive-pkg.tar.gz
+```
+
+### install a program manually
+
+The simplest way to do that (if you haven't any documentation indicating anything of course) is to copy the full program into `/usr/share/program_name/`.
+Then create a script as `/usr/bin/program_name` containing:
+
+```
+    #!/bin/sh
+    #
+    
+    # for example or whatever you need to do to run your application.
+    /usr/bin/firefox --app "/usr/share/pencil/application.ini"
 ```
 
 ### dialog

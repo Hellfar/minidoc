@@ -213,11 +213,11 @@ Operation|Effect
 ```
 
 ```
-string="titi-tutu"
-IFS=- # use "local IFS=-" inside the function
-set $string
-echo $1 # >>> titi
-echo $2 # >>> tutu
+    string="titi-tutu"
+    IFS=- # use "local IFS=-" inside the function
+    set $string
+    echo $1 # >>> titi
+    echo $2 # >>> tutu
 ```
 
 ## Network

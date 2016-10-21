@@ -324,6 +324,12 @@ Then create a script as `/usr/bin/program_name` containing:
     } | dialog --gauge "Please wait while installing" 6 60 0
 ```
 
+### merge PDFs
+
+```
+    gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=merged.pdf file1.pdf file2.pdf
+```
+
 ## References
 
 - [http://wiki.bash-hackers.org](http://wiki.bash-hackers.org)

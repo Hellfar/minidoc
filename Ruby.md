@@ -1,6 +1,13 @@
 # Ruby
 
+## Spliting into two variables
+
+```
+first_element, second_element = s_elements.split(",")
+```
+
 ## Aliasing methods
+
 ```
 #!/usr/bin/env ruby
 class Microwave
@@ -36,9 +43,11 @@ m.on # Displays extra message
 m2 = Microwave.new
 m2.on # Does not display extra message
 ```
+
 [ref](http://ruby.about.com/od/rubyfeatures/a/aliasing.htm)
 
 ## Redirecting standard output
+
 ```
 #!/usr/bin/ruby
 
@@ -52,4 +61,5 @@ $stdout = STDOUT
 
 puts "Python"
 ```
+
 [ref](http://zetcode.com/lang/rubytutorial/io/)

@@ -29,3 +29,7 @@ Describe a table with its name from connected database:
     # \d table_name
     # \d+ table_name
 ```
+
+## References
+
+[https://www.postgresql.org/docs/current/static/app-psql.html#APP-PSQL-META-COMMANDS](https://www.postgresql.org/docs/current/static/app-psql.html#APP-PSQL-META-COMMANDS)

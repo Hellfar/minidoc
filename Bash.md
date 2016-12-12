@@ -194,7 +194,7 @@ Operation|Effect
     # Defaults to full string, as in ${parameter:-default}.
     # However . . .
     
-    echo ${stringZ:(-4)}                         # Cabc 
+    echo ${stringZ:(-4)}                         # Cabc
     echo ${stringZ: -4}                          # Cabc
     # Now, it works.
     # Parentheses or added space "escape" the position parameter.
@@ -276,6 +276,29 @@ Copy multiple files from the remote host to your current directory on the local 
 ## inotify (Monitor file system activity)
 
 [C tutorial](https://www.ibm.com/developerworks/linux/library/l-ubuntu-inotify/index.html)
+
+## cron
+
+The cron jobs run in their own shell.
+
+```
+    $ # Know about the cron deamon status.
+    $ service cron status
+    $ # OR
+    $ pgrep cron
+    
+    $ # Edit your per-user crontab file (/tmp/crontab.:ID/crontab).
+    $ crontab -e
+    
+    $ # restart cron
+    $ restart cron
+```
+
+System crontabs are located likely : `/etc/cron.daily/` or `/etc/cron.hourly` etc.
+
+[Whenever](https://github.com/javan/whenever) could be a good tool for managing your cron jobs
+
+(You may be interested in crond too).
 
 ## Archives
 

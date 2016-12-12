@@ -277,6 +277,29 @@ Copy multiple files from the remote host to your current directory on the local 
 
 [C tutorial](https://www.ibm.com/developerworks/linux/library/l-ubuntu-inotify/index.html)
 
+## Archives
+
+### tar
+
+- v : verbose
+- f : archive file name
+- x : extract
+- c : create
+- z : stands for gz stands for gzip stands for gunzip
+
+```
+    $ # create
+    $ tar -zcvf archive-name.tar.gz directory-name
+    $ # extract
+    $ tar -xvf archive.tar.gz
+```
+
+### others
+
+```
+    pacman -U archive-pkg.tar.gz
+```
+
 ## Misc
 
 ### crypt files
@@ -291,13 +314,6 @@ Copy multiple files from the remote host to your current directory on the local 
     openssl enc -in foo.bar.enc \
         -d -aes-256-cbc \
         -pass stdin > foo.bar
-```
-
-### extract archives
-
-```
-    tar -xvf archive.tar.gz
-    pacman -U archive-pkg.tar.gz
 ```
 
 ### install a program manually

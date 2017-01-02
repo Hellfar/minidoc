@@ -277,6 +277,29 @@ Copy multiple files from the remote host to your current directory on the local 
 
 [C tutorial](https://www.ibm.com/developerworks/linux/library/l-ubuntu-inotify/index.html)
 
+## traps
+
+trap an event into a bash query:
+
+```
+    declare -t VARIABLE=value
+
+    trap "echo VARIABLE is being used here." DEBUG
+```
+
+```
+    #!/bin/bash
+    # traptest.sh
+    
+    trap "echo Booh!" SIGINT SIGTERM
+    echo "pid is $$"
+    
+    while :			# This is the same as "while true".
+    do
+      sleep 60	# This script is not really doing anything.
+    done
+```
+
 ## cron
 
 The cron jobs run in their own shell.

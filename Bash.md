@@ -281,6 +281,12 @@ Copy multiple files from the remote host to your current directory on the local 
     $ service networking restart
 ```
 
+```
+    $ sudo /etc/init.d/networking stop
+    $ sudo /etc/init.d/networking start
+    $ sudo /etc/init.d/networking restart
+```
+
 ## inotify (Monitor file system activity)
 
 [C tutorial](https://www.ibm.com/developerworks/linux/library/l-ubuntu-inotify/index.html)

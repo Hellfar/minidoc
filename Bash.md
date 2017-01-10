@@ -273,6 +273,14 @@ Copy multiple files from the remote host to your current directory on the local 
     sudo dhclient -v
 ```
 
+### network service
+
+```
+    $ service networking stop
+    $ service networking start
+    $ service networking restart
+```
+
 ## inotify (Monitor file system activity)
 
 [C tutorial](https://www.ibm.com/developerworks/linux/library/l-ubuntu-inotify/index.html)

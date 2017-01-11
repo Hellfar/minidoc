@@ -287,6 +287,10 @@ Copy multiple files from the remote host to your current directory on the local 
     $ sudo /etc/init.d/networking restart
 ```
 
+### mount windows distant point
+
+[Mount samba shares with utf8 encoding using cifs](https://ubuntuforums.org/showthread.php?t=288534)
+
 ## inotify (Monitor file system activity)
 
 [C tutorial](https://www.ibm.com/developerworks/linux/library/l-ubuntu-inotify/index.html)

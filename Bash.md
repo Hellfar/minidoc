@@ -146,23 +146,23 @@ Operation|Effect
 
 ```
     # Zero filled for 100MB by chunk of 1KB.
-    dd if=/dev/zero of=/tmp/1Mo.zero bs=1KB count=100000
+    $ dd if=/dev/zero of=/tmp/1Mo.zero bs=1KB count=100000
     
     # Randomly filled for 100MB by chunk of 1KB.
-    dd if=/dev/urandom of=/tmp/1Mo.random bs=1KB count=100000
+    $ dd if=/dev/urandom of=/tmp/1Mo.random bs=1KB count=100000
     
     # Randomly filled for 100MB by chunk of 1KB moving 99 999 blocks in one time.
-    dd if=/dev/urandom of=/tmp/100Mo.random bs=1K seek=99999 count=1
+    $ dd if=/dev/urandom of=/tmp/100Mo.random bs=1K seek=99999 count=1
     
     # Fastest way to randomly filled a file by size function.
     # Will output a base64 formated file of 1GB (2**30) non-formated and *3/4 for Base64 overhead, making the encoded output 1GB.
-    openssl rand -out sample.txt -base64 $(( 2**30 * 3/4 ))
+    $ openssl rand -out sample.txt -base64 $(( 2**30 * 3/4 ))
     
     # Allocate for 10GB.
-    fallocate -l 10G gentoo_root.img
+    $ fallocate -l 10G gentoo_root.img
     
     # Output readable file with not duplicated content with 100 lines.
-    ruby -e 'a=STDIN.readlines;100.times do;b=[];4.times do; b << a[rand(a.size)].chomp end; puts b.join(" "); end' < /usr/share/dict/words > file.txt
+    $ ruby -e 'a=STDIN.readlines;100.times do;b=[];4.times do; b << a[rand(a.size)].chomp end; puts b.join(" "); end' < /usr/share/dict/words > file.txt
 ```
 
 ## Data tricks and parsing
@@ -171,7 +171,7 @@ Operation|Effect
 
 ```
     # Will number all lines.
-    nl -b a input-file.txt
+    $ nl -b a input-file.txt
 ```
 
 ### truncate variables
@@ -181,21 +181,21 @@ Operation|Effect
     #       0123456789.....
     #       0-based indexing.
     
-    echo ${stringZ:0}                            # abcABC123ABCabc
-    echo ${stringZ:1}                            # bcABC123ABCabc
-    echo ${stringZ:7}                            # 23ABCabc
+    $ echo ${stringZ:0}                            # abcABC123ABCabc
+    $ echo ${stringZ:1}                            # bcABC123ABCabc
+    $ echo ${stringZ:7}                            # 23ABCabc
     
-    echo ${stringZ:7:3}                          # 23A
+    $ echo ${stringZ:7:3}                          # 23A
                                                  # Three characters of substring.
     
     # Is it possible to index from the right end of the string?
 
-    echo ${stringZ:-4}                           # abcABC123ABCabc
+    $ echo ${stringZ:-4}                           # abcABC123ABCabc
     # Defaults to full string, as in ${parameter:-default}.
     # However . . .
     
-    echo ${stringZ:(-4)}                         # Cabc
-    echo ${stringZ: -4}                          # Cabc
+    $ echo ${stringZ:(-4)}                         # Cabc
+    $ echo ${stringZ: -4}                          # Cabc
     # Now, it works.
     # Parentheses or added space "escape" the position parameter.
     
@@ -213,11 +213,11 @@ Operation|Effect
 ```
 
 ```
-    string="titi-tutu"
-    IFS=- # use "local IFS=-" inside the function
-    set $string
-    echo $1 # >>> titi
-    echo $2 # >>> tutu
+    $ string="titi-tutu"
+    $ IFS=- # use "local IFS=-" inside the function
+    $ set $string
+    $ echo $1 # >>> titi
+    $ echo $2 # >>> tutu
 ```
 
 ## Network
@@ -260,17 +260,17 @@ Copy multiple files from the remote host to your current directory on the local 
 ### List program that are working with a specific port
 
 ```
-    lsof -i :portNumber
-    lsof -i tcp:portNumber
-    lsof -i udp:portNumber
-    lsof -i :80
-    lsof -i :80 | grep LISTEN
+    $ lsof -i :portNumber
+    $ lsof -i tcp:portNumber
+    $ lsof -i udp:portNumber
+    $ lsof -i :80
+    $ lsof -i :80 | grep LISTEN
 ```
 
 ### Renew DHCP allocation
 
 ```
-    sudo dhclient -v
+    $ sudo dhclient -v
 ```
 
 ### network service

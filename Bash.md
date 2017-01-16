@@ -273,6 +273,45 @@ Copy multiple files from the remote host to your current directory on the local 
     $ sudo dhclient -v
 ```
 
+### List open ports and socket informations
+
+```
+    $ netstat -tulpn
+```
+
+### List listening socket (open port)
+
+```
+    $ netstat -nat | grep LISTEN
+```
+
+### List open IPv4 connections
+
+```
+    $ lsof -Pnl +M -i4
+```
+
+### Open/Close port
+
+Open it to a specific IP address:
+
+```
+    $ sudo iptables -I INPUT -p tcp -s 10.1.1.2 --dport 22 -j ACCEPT
+    $ sudo iptables-save
+```
+
+Close the same port to any other IP address:
+
+```
+    $ sudo iptables -I INPUT -p tcp -s 0.0.0.0/0 --dport 22 -j DROP
+```
+
+Save your changes:
+
+```
+    $ sudo iptables-save
+```
+
 ### network service
 
 ```

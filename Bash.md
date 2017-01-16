@@ -449,6 +449,36 @@ Then create a script as `/usr/bin/program_name` containing:
     gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=merged.pdf file1.pdf file2.pdf
 ```
 
+### System
+
+#### Add backports to your packages manager
+
+Add this line to your `/etc/apt/sources.list` (here for `jessie-backports` example):
+
+```
+    deb http://ftp.debian.org/debian jessie-backports main
+```
+
+Then you can install from backports (here with `jessie-backports` example):
+
+```
+    $ sudo apt-get -t jessie-backports install certbot
+```
+
+### Certificate
+
+Using letsencrypt and certbot:
+[https://certbot.eff.org/](https://certbot.eff.org/)
+
+### Install sudo
+
+As a sudoers:
+
+```
+    apt-get install sudo -y
+    adduser USERNAME
+```
+
 ## References
 
 - [http://wiki.bash-hackers.org](http://wiki.bash-hackers.org)
@@ -458,3 +488,4 @@ Then create a script as `/usr/bin/program_name` containing:
 - [http://www.cyberciti.biz/faq/what-process-has-open-linux-port/](http://www.cyberciti.biz/faq/what-process-has-open-linux-port/)
 - [https://unix.stackexchange.com/questions/162960/how-can-i-encrypt-a-file](https://unix.stackexchange.com/questions/162960/how-can-i-encrypt-a-file)
 - [http://www.hypexr.org/linux_scp_help.php](http://www.hypexr.org/linux_scp_help.php)
+- [https://www.vultr.com/docs/how-to-use-sudo-on-debian-centos-and-freebsd](https://www.vultr.com/docs/how-to-use-sudo-on-debian-centos-and-freebsd)

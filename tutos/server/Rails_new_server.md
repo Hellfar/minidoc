@@ -6,7 +6,7 @@ Rails new server
 ```
     $ rails new PROJECT_NAME
     $ cd PROJECT_NAME
-    $ bundle install
+    $ bundle install # (should be already done by the new command).
 ```
 
 ## Additionnal gems that you may required
@@ -36,16 +36,18 @@ Rails new server
 
 ```
     $ # devise
-    $ rails generate devise:install
-    $ rails g devise:views
-    $ rails generate devise User
+    $ rails g devise:install
+    $ rails g devise User
     $ rake db:migrate
     $ # pundit
     $ rails g pundit:install
     $ # doorkeeper
-    $ rails generate doorkeeper:install
-    $ rails generate doorkeeper:migration
+    $ rails g doorkeeper:install
+    $ rails g doorkeeper:migration
     $ rake db:migrate
+    $ # with front
+    $ rails g devise:views
+    $ rails g doorkeeper:views
 ```
 
 ## Configuration

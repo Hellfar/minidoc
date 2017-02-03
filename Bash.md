@@ -405,6 +405,14 @@ System crontabs are located likely : `/etc/cron.daily/` or `/etc/cron.hourly` et
 
 ## Misc
 
+### attribute cores to tasks
+
+To run `make test` (for example) in its own cpu's core:
+
+```
+   taskset -c 1 make test
+```
+
 ### crypt files
 
 ```

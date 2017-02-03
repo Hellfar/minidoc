@@ -32,5 +32,10 @@ Directory|Content
 /usr|Programs, libraries, documentation etc. for all user-related programs.
 /var|Storage for all variable files and temporary files created by users, such as log files, the mail queue, the print spooler area, space for temporary storage of files downloaded from the Internet, or to keep an image of a CD before burning it.
 
+Where to put?|Here
+-------------|----
+aliases|In `~/.bash_aliases`
+env vars|In `~/.profile` or `~/.bash_profile` if this env vars are specific to bash (careful if `~/.bash_profile` exists `~/.profile` is not loaded).
+
 ## Reference
 [http://www.tldp.org/LDP/intro-linux/html/sect_03_01.html](http://www.tldp.org/LDP/intro-linux/html/sect_03_01.html)

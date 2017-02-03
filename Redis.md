@@ -64,13 +64,13 @@ Simple use:
 
 ```
     > rpush foo bar
-    1
+    (integer) 1
     > rpush foo barbar
-    2
+    (integer) 2
     > lpop foo
     "bar"
     > lpush foo coco
-    2
+    (integer) 2
     > lpop foo
     "coco"
 ```
@@ -79,20 +79,25 @@ Advanced use:
 
 ```
     > rpush foo bar barbar
-    2
+    (integer) 2
     > lpop foo
     "bar"
     > rpush foo coco
-    2
+    (integer) 2
     > lrange foo 0 -1
     "barbar"
     "coco"
     > llen foo
-    2
-    > blpop foo 1 # waiting 1 seconde
+    (integer) 2
+    > blpop foo 1 # waiting 1 seconde (poping one element only)
     "barbar"
     > llen foo
-    1
+    (integer) 1
     > blpop foo 0 # waiting forever until something is right or left pushed into the list
     ...
+    > rpush bar tutu tutu
+    (integer) 2
+    > lrange bar 0 -1
+    "tutu"
+    "tutu"
 ```

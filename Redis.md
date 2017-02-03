@@ -91,9 +91,8 @@ Advanced use:
     2
     > blpop foo 1 # waiting 1 seconde
     "barbar"
-    "coco"
     > llen foo
-    0
+    1
     > blpop foo 0 # waiting forever until something is right or left pushed into the list
     ...
 ```

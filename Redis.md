@@ -101,3 +101,46 @@ Advanced use:
     "tutu"
     "tutu"
 ```
+
+### A Set
+
+A set is a list of elements in which each elements appears only once.
+
+Simple use:
+
+```
+    > sadd foo bar barbar
+    (integer) 2
+    > sadd foo tutu tutu
+    (integer) 1
+    > spop foo # returns a random element in the set
+    "bar"
+    > spop foo
+    "tutu"
+    > spop foo
+    "barbar"
+    > spop foo
+    (nil)
+```
+
+Advanced use:
+
+```
+    > sadd foo bar barbar
+    (integer) 2
+    > sadd foo tutu tutu
+    (integer) 1
+    > scard foo
+    (integer) 3
+    > smembers foo
+    1) "tutu"
+    2) "barbar"
+    3) "bar"
+    > spop foo 2
+    1) "tutu"
+    2) "barbar"
+    > spop foo 2
+    1) "bar"
+    > spop foo 2
+    (empty list or set)
+```

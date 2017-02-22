@@ -427,6 +427,14 @@ To run `make test` (for example) in its own cpu's core:
         -pass stdin > foo.bar
 ```
 
+### Generating a new SSH key
+
+```
+    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+You may want to change the destination/name for the final key file name.
+
 ### install a program manually
 
 The simplest way to do that (if you haven't any documentation indicating anything of course) is to copy the full program into `/usr/share/program_name/`.

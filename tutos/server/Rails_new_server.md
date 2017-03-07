@@ -35,6 +35,8 @@ Rails new server
 ## Pre-installation steps to follow
 
 ```
+    $ # if you want to have uuid as id for your models (you'll have to ask it for every new model)
+    $ rails g migration EnableUuidExtension
     $ # devise
     $ rails g devise:install
     $ # -- Follow the instructions

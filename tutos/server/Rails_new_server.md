@@ -37,6 +37,7 @@ Rails new server
 ```
     $ # devise
     $ rails g devise:install
+    $ # -- Follow the instructions
     $ rails g devise User
     $ rake db:migrate
     $ # pundit

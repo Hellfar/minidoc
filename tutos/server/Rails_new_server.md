@@ -20,6 +20,7 @@ Rails new server
 - **doorkeeper** (Oauth (API authentification))
 - **pg** (if postgres selected)
 - **sqlite3** (if sqlite selected)
+- **nested_scaffold** (in need of nesting resources, will help you with views nested etc...)
 - **===========** (With Front-End)
 - **foundation-rails** (foundation (quick design generation))
 - **active_link_to**

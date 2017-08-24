@@ -10,5 +10,6 @@ Watch static content (need `reload` module installed) :
 Serve static content :
 
 ```
+	npm install -g node-static
     static app/
 ```

@@ -193,6 +193,16 @@ qqplot()              # quantile-quantile plot
     > sapply(data, function(x) x^2) # Apply a lambda to a data.
 ```
 
+## Examples
+
+```
+    > # Growth with 8% decreasing to 5% over 7 iterations and with an initial invest of 1000 in a bar plot.
+    > dec <- c(1, (seq(1.08, 1.05, -0.005) ^ (cumsum(1:7)))) - 1
+    > se <- 1000 * dec
+    > names(se) <- sapply(sapply(dec - 1, round, digits = 3), toString)
+    > barplot(se)
+```
+
 ## sources
 
 [http://www.sr.bham.ac.uk/~ajrs/R/r-function_list.html](http://www.sr.bham.ac.uk/~ajrs/R/r-function_list.html)

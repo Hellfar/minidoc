@@ -187,6 +187,12 @@ qqplot()              # quantile-quantile plot
     > source("bottle1.R") # run a script
 ```
 
+## Miscs
+
+```
+    > sapply(data, function(x) x^2) # Apply a lambda to a data.
+```
+
 ## sources
 
 [http://www.sr.bham.ac.uk/~ajrs/R/r-function_list.html](http://www.sr.bham.ac.uk/~ajrs/R/r-function_list.html)

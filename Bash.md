@@ -104,6 +104,22 @@ Operation|Effect
 - [type](http://linuxcommand.org/lc3_man_pages/typeh.html)
 - [command](http://man.cx/command(1))
 
+### Various commands
+
+#### less
+
+```
+    $ # To use less for monitoring a changing file.
+    $ less +F yourfile.txt
+    $ # Similarly with tail (can handle several files).
+    $ tail -f youfile.txt
+```
+
+```
+    $ # get less directly scrolled to the end
+    $ less +G youfile.txt
+```
+
 ## Redirection
 
 ### Redirect into a choosen file-descriptor

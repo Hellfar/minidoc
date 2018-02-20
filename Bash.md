@@ -564,6 +564,11 @@ Add to `/etc/environment` or probably best to `/etc/default/locale` the followin
     LANG=en_US.UTF-8
 ```
 
+#### Run a script at boot
+
+Edit the file `/etc/rc.local` and enter the command to run at boot.
+Absolute paths are required for example: `/home/pi/myscript.py` rather than `myscript.py`.
+
 ### Certificate
 
 Using letsencrypt and certbot:

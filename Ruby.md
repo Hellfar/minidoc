@@ -63,3 +63,11 @@ puts "Python"
 ```
 
 [ref](http://zetcode.com/lang/rubytutorial/io/)
+
+## Data types
+
+Syntaxe|Type
+-------|----
+`%w[this will be splitted into an array]`|Array
+`%r[this_is_my_regex]`|Regex
+`%x[ echo 'hi' ]`|Will run this as a shell command

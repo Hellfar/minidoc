@@ -554,6 +554,16 @@ As a sudoers:
     adduser USERNAME
 ```
 
+#### Having problems with Locale
+
+Add to `/etc/environment` or probably best to `/etc/default/locale` the following lines:
+
+```
+    LC_ALL=en_US.UTF-8
+    LANGUAGE=en_US.UTF-8
+    LANG=en_US.UTF-8
+```
+
 ### Certificate
 
 Using letsencrypt and certbot:

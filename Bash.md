@@ -483,19 +483,6 @@ To run `make test` (for example) in its own cpu's core:
 
 You may want to change the destination/name for the final key file name.
 
-### install a program manually
-
-The simplest way to do that (if you haven't any documentation indicating anything of course) is to copy the full program into `/usr/share/program_name/`.
-Then create a script as `/usr/bin/program_name` containing:
-
-```
-    #!/bin/sh
-    #
-    
-    # for example or whatever you need to do to run your application.
-    /usr/bin/firefox --app "/usr/share/pencil/application.ini"
-```
-
 ### dialog
 
 ```
@@ -515,7 +502,36 @@ Then create a script as `/usr/bin/program_name` containing:
 
 ### System
 
-#### Add backports to your packages manager
+#### Install and packages managments
+
+##### Install a program manually
+
+The simplest way to do that (if you haven't any documentation indicating anything of course) is to copy the full program into `/usr/share/program_name/`.
+Then create a script as `/usr/bin/program_name` containing:
+
+```
+    #!/bin/sh
+    #
+    
+    # for example or whatever you need to do to run your application.
+    /usr/bin/firefox --app "/usr/share/pencil/application.ini"
+```
+
+##### Install a program from a .deb file package
+
+```
+    $ # Most common way.
+    $ sudo dpkg -i v3.3.4.deb
+    $ sudo apt-get install -f
+    $ # The `-f` means `--fix-broken`: "When dpkg install a package and package dependency is not satisfied, it leaves the package in unconfigured state and that package is considered as broken.".
+    $ # Using `apt`.
+    $ sudo apt install ./name.deb
+    $ # There is also a way to install it through GUI via `gdebi`.
+```
+
+[Credits](https://unix.stackexchange.com/a/159114/207334)
+
+##### Add backports to your packages manager
 
 Add this line to your `/etc/apt/sources.list` (here for `jessie-backports` example):
 
@@ -529,12 +545,7 @@ Then you can install from backports (here with `jessie-backports` example):
     $ sudo apt-get -t jessie-backports install certbot
 ```
 
-### Certificate
-
-Using letsencrypt and certbot:
-[https://certbot.eff.org/](https://certbot.eff.org/)
-
-### Install sudo
+##### Install sudo
 
 As a sudoers:
 
@@ -542,6 +553,11 @@ As a sudoers:
     apt-get install sudo -y
     adduser USERNAME
 ```
+
+### Certificate
+
+Using letsencrypt and certbot:
+[https://certbot.eff.org/](https://certbot.eff.org/)
 
 ## References
 

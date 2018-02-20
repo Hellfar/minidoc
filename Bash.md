@@ -181,6 +181,29 @@ Operation|Effect
     $ ruby -e 'a=STDIN.readlines;100.times do;b=[];4.times do; b << a[rand(a.size)].chomp end; puts b.join(" "); end' < /usr/share/dict/words > file.txt
 ```
 
+#### Create a Swap file
+
+To add a swap file:
+
+1. Determine the size of the new swap file in megabytes and multiply by 1024 to determine the number of blocks. For example, the block size of a 64 MB swap file is 65536.
+
+2. At a shell prompt as root, type the following command with count being equal to the desired block size:  
+`dd if=/dev/zero of=/swapfile bs=1024 count=65536`
+
+3. Setup the swap file with the command:  
+`mkswap /swapfile`
+
+4. To enable the swap file immediately but not automatically at boot time:  
+`swapon /swapfile`
+
+5. To enable it at boot time, edit /etc/fstab to include the following entry:  
+`/swapfile swap swap defaults 0 0`  
+The next time the system boots, it enables the new swap file.
+
+6. After adding the new swap file and enabling it, verify it is enabled by viewing the output of the command cat /proc/swaps or free.
+
+[Credits](https://www.centos.org/docs/5/html/5.1/Deployment_Guide/s2-swap-creating-file.html)
+
 ## Data tricks and parsing
 
 ### number the lines

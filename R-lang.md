@@ -1,5 +1,23 @@
 # R-lang
 
+## Syntaxe
+
+- `1`, `3` and `56` are numbers.
+- `"string"` is a string.
+- `TRUE` and `FALSE` are booleans (`T` and `F` are shorthands to them).
+- `c(4, 7, 9)` is a vector of numbers.
+
+To set a variable up `x <- 3`.
+
+To set a comment use `# this is a comment`.
+
+## Vectors
+
+- `5:9` is another way to set a vector but as a sequence (`seq(5, 9, 0.5)` to set the incremental).
+- `9:5` sequences can be reversed.
+- `se[3]` accessing the third element of the `se` vector.
+- `se[c(1, 3)]` and `se[2:4]` can also be used to select elements that'll be parts of a new vector (`se[5:7] <- c('first', 'second', 'third')` can be used as sequence replacement).
+
 ## General
 
 ```

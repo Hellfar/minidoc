@@ -181,7 +181,9 @@ Operation|Effect
     $ ruby -e 'a=STDIN.readlines;100.times do;b=[];4.times do; b << a[rand(a.size)].chomp end; puts b.join(" "); end' < /usr/share/dict/words > file.txt
 ```
 
-#### Create a Swap file
+#### Swap file
+
+##### Create
 
 To add a swap file:
 
@@ -203,6 +205,22 @@ The next time the system boots, it enables the new swap file.
 6. After adding the new swap file and enabling it, verify it is enabled by viewing the output of the command cat /proc/swaps or free.
 
 [Credits](https://www.centos.org/docs/5/html/5.1/Deployment_Guide/s2-swap-creating-file.html)
+
+##### Examine
+
+```
+    $ # Locate it.
+    $ swapon -s
+    $ # Similarly.
+    $ cat /proc/swaps
+```
+
+```
+    $ # Recap memory use.
+    $ free -m
+    $ # Human readable.
+    $ free -mh
+```
 
 ## Data tricks and parsing
 

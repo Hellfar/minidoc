@@ -7,6 +7,17 @@ Update methods cheat sheet (for Rails 4):
 - `attributes=` = alias of `assign_attributes`
 - `update` = alias of `update_attributes`
 
+## Controllers
+
+```
+    image = File.open "public/done.png", "rb"
+    respond_to do | format |
+      format.html
+      format.json
+      format.png { send_data image.read, type: "image/png", disposition: "inline" }
+    end
+```
+
 ## Views
 
 ### Conditions

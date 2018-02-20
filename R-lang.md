@@ -180,6 +180,13 @@ ecdf()                # Empirical Cumulative Distribution Function
 qqplot()              # quantile-quantile plot
 ```
 
+## Files
+
+```
+    > list.files() # list the files (non-hidden) in the current location.
+    > source("bottle1.R") # run a script
+```
+
 ## sources
 
 [http://www.sr.bham.ac.uk/~ajrs/R/r-function_list.html](http://www.sr.bham.ac.uk/~ajrs/R/r-function_list.html)

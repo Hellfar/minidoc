@@ -365,6 +365,15 @@ Save your changes:
     $ sudo /etc/init.d/networking restart
 ```
 
+### Check domain record location
+
+```
+    $ dig +noall +answer example.com
+    ;example.com.
+    example.com.   73  IN  A 192.30.252.153
+    example.com.   73  IN  A 192.30.252.154
+```
+
 ### mount windows distant point
 
 [Mount samba shares with utf8 encoding using cifs](https://ubuntuforums.org/showthread.php?t=288534)

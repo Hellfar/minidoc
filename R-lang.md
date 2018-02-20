@@ -18,6 +18,19 @@ To set a comment use `# this is a comment`.
 - `se[3]` accessing the third element of the `se` vector.
 - `se[c(1, 3)]` and `se[2:4]` can also be used to select elements that'll be parts of a new vector (`se[5:7] <- c('first', 'second', 'third')` can be used as sequence replacement).
 
+Names the the columns of a vector as follow:
+
+```
+    > ranks <- 1:3
+    > names(ranks) <- c("first", "second", "third")
+    > ranks
+     first second  third
+         1      2      3
+    > ranks["first"]
+    first
+        1
+```
+
 ## General
 
 ```

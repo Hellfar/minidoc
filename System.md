@@ -37,5 +37,18 @@ Where to put?|Here
 aliases|In `~/.bash_aliases`
 env vars|In `~/.profile` or `~/.bash_profile` if this env vars are specific to bash (careful if `~/.bash_profile` exists `~/.profile` is not loaded).
 
-## Reference
-[http://www.tldp.org/LDP/intro-linux/html/sect_03_01.html](http://www.tldp.org/LDP/intro-linux/html/sect_03_01.html)
+## Crypted partitions
+Mount a Luks crypted partition (tried on mint installation volume) :
+```
+$ sudo cryptsetup -v luksOpen /dev/sdc3 external # Change `/dev/sdc3` by your actual partition entry (e.g. for SSD volumes: `/dev/nvme0n1p3`).
+$ ls /dev/mapper/ # Confirm that you see `external` here.
+$ sudo mkdir -p /media/tmp/
+$ sudo mount /dev/mapper/mint--vg-root /media/tmp/ # Do not replace `mint--vg-root` by `external`.
+$ # ... Do what you need to do in there...
+$ sudo umount /media/tmp/
+$ sudo rmdir /media/tmp/ # Not mandatory.
+```
+
+## References
+- [http://www.tldp.org/LDP/intro-linux/html/sect_03_01.html](http://www.tldp.org/LDP/intro-linux/html/sect_03_01.html)
+- [https://forums.linuxmint.com/viewtopic.php?t=198706](https://forums.linuxmint.com/viewtopic.php?t=198706)

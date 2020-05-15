@@ -37,6 +37,13 @@ Where to put?|Here
 aliases|In `~/.bash_aliases`
 env vars|In `~/.profile` or `~/.bash_profile` if this env vars are specific to bash (careful if `~/.bash_profile` exists `~/.profile` is not loaded).
 
+## Relevant files
+
+Filename|Comments
+--------|--------
+/etc/hosts|Local DNS configuration
+/etc/sysctl.conf|Kernel configuration file (requires to be reloaded by system with `sudo sysctl -p`)
+
 ## Crypted partitions
 Mount a Luks crypted partition (tried on mint installation volume) :
 ```

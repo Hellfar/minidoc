@@ -43,6 +43,8 @@ Filename|Comments
 --------|--------
 /etc/hosts|Local DNS configuration
 /etc/sysctl.conf|Kernel configuration file (requires to be reloaded by system with `sudo sysctl -p`)
+/etc/sudoers|File that describe users rights restrictions and permissions (also should be set into `/etc/sudoers.d/` folder)
+/etc/apt/sources.list|Describe where to fetch packages lists.
 
 ## Crypted partitions
 Mount a Luks crypted partition (tried on mint installation volume) :

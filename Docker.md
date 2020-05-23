@@ -45,3 +45,14 @@ sudo docker run -p 3000:3000 rails-6:latest "bash" "-cl" "rails s" # Run a comma
 # The command above wont work as rails will serve in docker to 127.0.0.1 instead of localhost.
 sudo docker run -p 3000:3000 rails-6:latest "bash" "-cl" "rails s -b 0.0.0.0 -p 3000" # This command will fix the issue.
 ```
+
+## Links
+
+[Dockerfile(builder) ref](https://docs.docker.com/engine/reference/builder/)
+[Work over shared volums](https://docs.docker.com/storage/volumes/)
+
+[Understanding about login-shell in a docker image](https://www.theguild.nl/nvm-in-docker/)
+
+[About project code into a container](https://forums.docker.com/t/best-practices-for-getting-code-into-a-container-git-clone-vs-copy-vs-data-container/4077)
+
+[https://hub.docker.com/](https://hub.docker.com/)

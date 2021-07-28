@@ -44,6 +44,23 @@ sql = "SELECT * FROM \"some_table\""
 ActiveRecord::Base.connection.exec_query(sql)
 ```
 
+You can then use `.entries` onto the `ActiveRecord::Result` to get a proper list of Hashes.
+
+```ruby
+sql = "SELECT * FROM \"some_table\""
+ActiveRecord::Base.connection.exec_query(sql).entries
+# Could return for example something like that:
+[{"id"=>1,
+  "creator_id"=>1,
+  "name"=>"blazer queries",
+  "description"=>"",
+  "statement"=>"SELECT * FROM \"blazer_queries\"",
+  "data_source"=>"main",
+  "status"=>"active",
+  "created_at"=>2021-07-28 16:51:23.961785 UTC,
+  "updated_at"=>2021-07-28 16:51:23.961785 UTC}]
+```
+
 ## References
 
 [http://www.davidverhasselt.com/set-attributes-in-activerecord/#cheat-sheet](http://www.davidverhasselt.com/set-attributes-in-activerecord/#cheat-sheet)

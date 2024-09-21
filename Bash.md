@@ -12,6 +12,7 @@ Primary|Meaning
 [ -d FILE ]|True if FILE exists and is a directory.
 [ -e FILE ]|True if FILE exists.
 [ -f FILE ]|True if FILE exists and is a regular file.
+! [ -f FILE ]|True if FILE __does not__ exists and is a regular file.
 [ -g FILE ]|True if FILE exists and its SGID bit is set.
 [ -h FILE ]|True if FILE exists and is a symbolic link.
 [ -k FILE ]|True if FILE exists and its sticky bit is set.
@@ -31,7 +32,7 @@ Primary|Meaning
 [ FILE1 -ot FILE2 ]|True if FILE1 is older than FILE2, or is FILE2 exists and FILE1 does not.
 [ FILE1 -ef FILE2 ]|True if FILE1 and FILE2 refer to the same device and inode numbers.
 [ -o OPTIONNAME ]|True if shell option "OPTIONNAME" is enabled.
-[ -z STRING ]|True of the length if "STRING" is zero.
+[ -z STRING ]|True if the length of "STRING" is zero.
 [ -n STRING ] or [ STRING ]|True if the length of "STRING" is non-zero.
 [ STRING1 == STRING2 ]|True if the strings are equal. "=" may be used instead of "==" for strict POSIX compliance.
 [ STRING1 != STRING2 ]|True if the strings are not equal.

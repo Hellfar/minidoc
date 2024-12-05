@@ -110,7 +110,7 @@ Update `config/routes.rb` so it routes to your your home page as a default page,
 
 ## Rake
 
-Add this task to your `Rakefile` so you will be able to manage the rails processus easier.
+Add this task to your `Rakefile` so you will be able to manage the rails process easier.
 
 ```
     desc 'stop rails'
@@ -124,7 +124,7 @@ Add this task to your `Rakefile` so you will be able to manage the rails process
         puts "Rails was not running."
       end
     end
-    
+
     desc 'print the pid of rails'
     task :pid do
       pid_file = 'tmp/pids/server.pid'
